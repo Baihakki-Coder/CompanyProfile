@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>SkyNova Digital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* NAVBAR */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 15px 60px;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: #fff;
+    font-size: 24px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: #00c3ff;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d") center/cover;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+.hero button {
+    padding: 12px 30px;
+    border: none;
+    background: #00c3ff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #0099cc;
+}
+
+/* SECTION */
+section {
+    padding: 100px 60px;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0077b6;
+}
+
+/* ABOUT */
+.about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 30px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* STATS */
+.stats {
+    background: #0077b6;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 36px;
+}
+
+/* SERVICES */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+.service {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+    transition: transform .3s;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* TESTIMONIAL */
+.testimonial {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+}
+
+/* CONTACT */
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button.submit {
+    width: 100%;
+    background: #0077b6;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.submit:hover {
+    background: #023e8a;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+    <h1>SkyNova</h1>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+</header>
+
+<div id="home" class="hero">
+    <div>
+        <h2>We Build Digital Future</h2>
+        <p>SkyNova Digital adalah perusahaan teknologi yang menyediakan solusi website,
+        aplikasi, dan transformasi digital modern.</p>
+        <button onclick="scrollToSection()">Get Started</button>
+    </div>
+</div>
+
+<section id="about">
+<h2>About Us</h2>
+<div class="about">
+    <p>
+        SkyNova Digital berdiri untuk membantu bisnis berkembang melalui teknologi.
+        Kami berfokus pada kualitas, keamanan, dan desain modern.
+    </p>
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c">
+</div>
+</section>
+
+<section class="stats">
+<div class="stat"><h3>120+</h3><p>Clients</p></div>
+<div class="stat"><h3>80+</h3><p>Projects</p></div>
+<div class="stat"><h3>10+</h3><p>Years Experience</p></div>
+</section>
+
+<section id="services">
+<h2>Our Services</h2>
+<div class="services">
+    <div class="service"><h3>Web Development</h3><p>Website modern & responsif.</p></div>
+    <div class="service"><h3>Mobile App</h3><p>Aplikasi Android & Web App.</p></div>
+    <div class="service"><h3>UI/UX Design</h3><p>Desain elegan & user friendly.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Gallery</h2>
+<div class="gallery">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+</div>
+</section>
+
+<section>
+<h2>Testimonial</h2>
+<div class="testimonial">
+    <p>"SkyNova membantu bisnis kami berkembang pesat secara digital."</p>
+    <strong>- CEO Startup</strong>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+<form onsubmit="sendMessage(event)">
+    <input type="text" placeholder="Nama" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="4" placeholder="Pesan" required></textarea>
+    <button class="submit">Kirim Pesan</button>
+</form>
+</section>
+
+<footer>
+<p>© 2026 SkyNova Digital Company Profile</p>
+</footer>
+
+<script>
+function scrollToSection() {
+    document.getElementById("about").scrollIntoView();
+}
+
+function sendMessage(e) {
+    e.preventDefault();
+    alert("Pesan berhasil dikirim!");
+}
+</script>
+
+</body>
+</html>
