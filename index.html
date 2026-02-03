@@ -2,111 +2,324 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Kalkulator Sederhana</title>
+<title>GreenForesta Industry</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #222;
-    font-family: Arial, sans-serif;
+:root{
+    --green-dark:#0b3d2e;
+    --green-main:#1b7f5c;
+    --green-light:#7ae582;
+    --white:#ffffff;
 }
 
-.kalkulator {
-    background: #333;
-    padding: 20px;
-    border-radius: 10px;
-    width: 260px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-#display {
-    width: 100%;
-    height: 50px;
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: right;
-    padding: 5px;
+body{
+    background: var(--green-dark);
+    color: var(--white);
+    overflow-x:hidden;
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+/* ===== BACKGROUND ANIMATION ===== */
+.bg-animation{
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at 15% 25%, rgba(122,229,130,.25), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,127,92,.35), transparent 40%);
+    animation: bgMove 12s ease-in-out infinite alternate;
+    z-index:-2;
 }
 
-button {
-    height: 50px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
+@keyframes bgMove{
+    from{background-position:0 0;}
+    to{background-position:200px 300px;}
 }
 
-.operator {
-    background: orange;
+/* Floating Leaves */
+.leaf{
+    position:fixed;
+    width:22px;
+    height:22px;
+    background:rgba(122,229,130,.7);
+    border-radius:0 100% 0 100%;
+    animation: floatLeaf linear infinite;
+    z-index:-1;
 }
 
-.clear {
-    background: red;
-    color: white;
+@keyframes floatLeaf{
+    from{transform:translateY(-40px) rotate(0deg);}
+    to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* ===== NAVBAR ===== */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:15px 60px;
+    background:rgba(11,61,46,.85);
+    backdrop-filter:blur(8px);
+    z-index:100;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h1{
+    color:var(--green-light);
+    font-size:22px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+nav ul li a:hover{
+    color:var(--green-light);
+}
+
+/* ===== HERO ===== */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:100px 60px;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero h2{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.hero button{
+    padding:14px 32px;
+    background:var(--green-light);
+    border:none;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#000;
+}
+
+/* ===== SECTION ===== */
+section{
+    padding:100px 60px;
+}
+
+.section-box{
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:45px;
+    backdrop-filter:blur(6px);
+}
+
+.section-box h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:var(--green-light);
+}
+
+/* ===== ABOUT ===== */
+.about-text{
+    line-height:1.8;
+    font-size:17px;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+/* ===== GALLERY ===== */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.gallery-item{
+    background:rgba(255,255,255,.12);
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.gallery-item:hover{
+    transform:translateY(-8px);
+}
+
+.gallery img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.gallery p{
+    padding:15px;
+    font-size:15px;
+    text-align:center;
+}
+
+/* ===== SOCIAL ===== */
+.socials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.social{
+    background:rgba(255,255,255,.12);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:.3s;
+}
+
+.social:hover{
+    transform:translateY(-8px);
+    background:rgba(122,229,130,.25);
+}
+
+.social a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#06291f;
+    color:#b7e4c7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    header{padding:15px 30px;}
+    section{padding:80px 30px;}
+    .hero h2{font-size:36px;}
 }
 </style>
 </head>
-
 <body>
-<div class="kalkulator">
-    <input type="text" id="display" disabled>
 
-    <div class="buttons">
-        <button class="clear" onclick="clearDisplay()">C</button>
-        <button onclick="append('/')">÷</button>
-        <button onclick="append('*')">×</button>
-        <button onclick="del()">⌫</button>
+<div class="bg-animation"></div>
 
-        <button onclick="append('7')">7</button>
-        <button onclick="append('8')">8</button>
-        <button onclick="append('9')">9</button>
-        <button class="operator" onclick="append('-')">−</button>
+<!-- Floating Leaves -->
+<div class="leaf" style="left:12%; animation-duration:15s;"></div>
+<div class="leaf" style="left:45%; animation-duration:18s;"></div>
+<div class="leaf" style="left:78%; animation-duration:16s;"></div>
 
-        <button onclick="append('4')">4</button>
-        <button onclick="append('5')">5</button>
-        <button onclick="append('6')">6</button>
-        <button class="operator" onclick="append('+')">+</button>
+<header>
+<nav>
+    <h1>GreenForesta</h1>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#activity">Kegiatan</a></li>
+        <li><a href="#contact">Narahubung</a></li>
+    </ul>
+</nav>
+</header>
 
-        <button onclick="append('1')">1</button>
-        <button onclick="append('2')">2</button>
-        <button onclick="append('3')">3</button>
-        <button rowspan="2" class="operator" onclick="calculate()">=</button>
+<section id="home" class="hero">
+<div class="hero-content">
+    <h2>Industri Kehutanan Berkelanjutan</h2>
+    <p>
+        GreenForesta merupakan perusahaan industri kehutanan yang berfokus
+        pada pengelolaan hutan secara bertanggung jawab dan berkelanjutan.
+    </p>
+    <button onclick="scrollToSection('about')">Tentang Kami</button>
+</div>
+</section>
 
-        <button onclick="append('0')">0</button>
-        <button onclick="append('.')">.</button>
+<section id="about">
+<div class="section-box">
+    <h2>Tentang Kami</h2>
+    <p class="about-text">
+        Industri kehutanan memiliki peran penting dalam menjaga ekosistem
+        dan menyediakan bahan baku kayu secara legal. GreenForesta hadir
+        dengan komitmen menjaga keseimbangan antara produksi dan pelestarian
+        alam melalui reboisasi, pengawasan hutan, dan teknologi ramah lingkungan.
+    </p>
+</div>
+</section>
+
+<section id="activity">
+<div class="section-box">
+    <h2>Kegiatan Industri Kehutanan</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="monitoring.webp">
+            <p>Pengelolaan hutan produksi secara terkontrol</p>
+        </div>
+        <div class="gallery-item">
+            <img src="tanam.webp">
+            <p>Penanaman kembali (reboisasi)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="hj.jpg">
+            <p>Monitoring kawasan hutan</p>
+        </div>
+        <div class="gallery-item">
+            <img src="hutan.jpg">
+            <p>Industri pengolahan kayu ramah lingkungan</p>
+        </div>
     </div>
 </div>
+</section>
+
+<section id="contact">
+<div class="section-box">
+    <h2>Narahubung</h2>
+    <div class="socials">
+        <div class="social"><a href="#">🌐 Website<br>greenforesta.co.id</a></div>
+        <div class="social"><a href="#">📷 Instagram<br>@greenforesta.id</a></div>
+        <div class="social"><a href="#">📘 Facebook<br>GreenForesta Industry</a></div>
+        <div class="social"><a href="#">💼 LinkedIn<br>GreenForesta Company</a></div>
+    </div>
+</div>
+</section>
+
+<footer>
+© 2026 GreenForesta • Industri Kehutanan Berkelanjutan
+</footer>
 
 <script>
-let display = document.getElementById("display");
-
-function append(value) {
-    display.value += value;
-}
-
-function clearDisplay() {
-    display.value = "";
-}
-
-function del() {
-    display.value = display.value.slice(0, -1);
-}
-
-function calculate() {
-    try {
-        display.value = eval(display.value);
-    } catch {
-        display.value = "Error";
-    }
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 </script>
+
 </body>
 </html>
